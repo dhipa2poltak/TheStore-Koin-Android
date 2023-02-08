@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/list_nav_graph"
+    app:startDestination="@+id/productListFragment">
+
+  <fragment
+      android:id="@+id/productListFragment"
+      android:name="com.dpfht.bookstore_koin.feature_list.view.ProductListFragment"
+      android:label="Order Barang"
+      tools:layout="@layout/fragment_product_list">
+
+    <deepLink
+        app:uri="android-app://testproduct.dpfht.com/list_fragment" />
+
+  </fragment>
+
+  <!--
+  <dialog
+      android:id="@+id/errorMessageDialogFragment"
+      android:name="com.dpfht.bookstore.feature_list.view.ErrorMessageDialogFragment"
+      android:label="fragment_error_message_dialog"
+      tools:layout="@layout/fragment_error_message_dialog">
+
+    <deepLink
+        app:uri="android-app://testproduct.dpfht.com/error_list_fragment?message={message}" />
+
+    <argument
+        android:name="message"
+        android:defaultValue="no message"
+        app:argType="string"  />
+  </dialog>
+  -->
+</navigation>

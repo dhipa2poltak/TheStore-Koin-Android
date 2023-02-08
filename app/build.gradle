@@ -1,0 +1,105 @@
+plugins {
+  id 'com.android.application'
+  id 'org.jetbrains.kotlin.android'
+}
+
+android {
+  signingConfigs {
+    release {
+      storeFile file('/Users/user/Documents/mykeystores/TestQasir.keystore')
+      storePassword 'TestQasir123'
+      keyAlias 'TestQasir'
+      keyPassword 'TestQasir123'
+    }
+  }
+
+  compileSdk 32
+
+  defaultConfig {
+    applicationId "com.dpfht.bookstore_koin"
+    minSdk 19
+    targetSdk 32
+    versionCode 1
+    versionName "1.0"
+
+    multiDexEnabled true
+
+    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+  }
+
+  buildTypes {
+    release {
+      minifyEnabled true
+      shrinkResources true
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+      signingConfig signingConfigs.release
+
+      manifestPlaceholders.appNameSuffix = ""
+    }
+    debug{
+      applicationIdSuffix ".debug"
+      versionNameSuffix "-debug"
+
+      manifestPlaceholders.appNameSuffix = " (debug)"
+    }
+  }
+  buildFeatures {
+    viewBinding true
+  }
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+  kotlinOptions {
+    jvmTarget = '1.8'
+  }
+
+  flavorDimensions "default"
+
+  productFlavors {
+    staging {
+      applicationId "com.dpfht.bookstore_koin.staging"
+      manifestPlaceholders.appName = "BookStore-Koin-Staging"
+      buildConfigField 'String', 'BASE_URL', STAGING_BASE_URL
+    }
+    verify {
+      applicationId "com.dpfht.bookstore_koin.verify"
+      manifestPlaceholders.appName = "BookStore-Koin-Verify"
+      buildConfigField 'String', 'BASE_URL', VERIFY_BASE_URL
+    }
+    prod {
+      applicationId "com.dpfht.bookstore_koin"
+      manifestPlaceholders.appName = "BookStore-Koin"
+      buildConfigField 'String', 'BASE_URL', PROD_BASE_URL
+    }
+  }
+}
+
+dependencies {
+
+  implementation project(":framework")
+  implementation project(":data")
+  implementation project(":features:feature_splash")
+  implementation project(":features:feature_list")
+  implementation project(":features:feature_details")
+
+  implementation 'androidx.core:core-ktx:1.8.0'
+  implementation 'androidx.appcompat:appcompat:1.4.2'
+  implementation 'com.google.android.material:material:1.6.1'
+  implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+  implementation 'androidx.navigation:navigation-fragment-ktx:2.5.1'
+  implementation 'androidx.navigation:navigation-ui-ktx:2.5.1'
+  testImplementation 'junit:junit:4.13.2'
+  androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+  androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+  implementation "androidx.multidex:multidex:2.0.1"
+
+  implementation 'io.insert-koin:koin-android:3.2.0'
+
+  implementation 'com.google.code.gson:gson:2.8.9'
+  implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+  implementation 'com.squareup.okhttp3:okhttp:4.9.3'
+  implementation 'com.squareup.okhttp3:logging-interceptor:4.9.1'
+}

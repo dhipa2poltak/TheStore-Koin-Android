@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@+id/splashFragment">
+
+  <fragment
+      android:id="@+id/splashFragment"
+      android:name="com.dpfht.bookstore_koin.feature_splash.SplashFragment"
+      android:label="Splash">
+
+    <action
+        android:id="@+id/navigateSplashToList"
+        app:destination="@+id/listFragment" />
+  </fragment>
+
+  <fragment
+      android:id="@+id/listFragment"
+      android:name="com.dpfht.bookstore_koin.feature_list.view.ProductListFragment"
+      android:label="List">
+
+    <action
+        android:id="@+id/navigateListToDetails"
+        app:destination="@+id/detailsFragment" />
+
+    <action
+        android:id="@+id/navigateListToError"
+        app:destination="@+id/errorMessageDialogFragment" />
+  </fragment>
+
+  <fragment
+      android:id="@+id/detailsFragment"
+      android:name="com.dpfht.bookstore_koin.feature_details.view.ProductDetailsFragment"
+      android:label="Details">
+
+  </fragment>
+
+  <dialog
+      android:id="@+id/errorMessageDialogFragment"
+      android:name="com.dpfht.bookstore_koin.feature_list.view.ErrorMessageDialogFragment"
+      android:label="fragment_error_message_dialog"
+      tools:layout="@layout/fragment_error_message_dialog">
+    <argument
+        android:name="message"
+        android:defaultValue="no message"
+        app:argType="string"  />
+  </dialog>
+</navigation>

@@ -1,0 +1,23 @@
+pluginManagement {
+  repositories {
+    gradlePluginPortal()
+    google()
+    mavenCentral()
+  }
+}
+dependencyResolutionManagement {
+  repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+  repositories {
+    google()
+    mavenCentral()
+  }
+}
+rootProject.name = "BookStore-Koin"
+include ':app'
+include ':features:feature_splash'
+include ':features:feature_list'
+include ':features:feature_details'
+include ':framework'
+include ':data'
+include ':domain'
+include ':usecases'
