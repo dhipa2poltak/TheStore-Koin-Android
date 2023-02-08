@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
   <!-- Base application theme. -->
-  <style name="Theme.BookStoreKoin" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+  <style name="Theme.TheStoreKoin" parent="Theme.MaterialComponents.DayNight.NoActionBar">
     <!-- Primary brand color. -->
     <item name="colorPrimary">@color/purple_500</item>
     <item name="colorPrimaryVariant">@color/red</item>

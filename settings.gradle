@@ -12,7 +12,7 @@ dependencyResolutionManagement {
     mavenCentral()
   }
 }
-rootProject.name = "BookStore-Koin"
+rootProject.name = "TheStore-Koin"
 include ':app'
 include ':features:feature_splash'
 include ':features:feature_list'

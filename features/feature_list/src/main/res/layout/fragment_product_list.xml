@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="?attr/actionBarSize"
-    tools:context=".view.ProductListFragment">
+    tools:context="com.dpfht.thestore_koin.feature_list.view.ProductListFragment">
 
   <com.google.android.material.appbar.AppBarLayout
       android:id="@+id/appBarLayout"

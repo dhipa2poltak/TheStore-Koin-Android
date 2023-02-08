@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="?attr/actionBarSize"
-    tools:context=".view.ProductDetailsFragment">
+    tools:context="com.dpfht.thestore_koin.feature_details.view.ProductDetailsFragment">
 
   <ImageView
       android:id="@+id/iv_product"

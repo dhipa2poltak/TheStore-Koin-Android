@@ -7,7 +7,7 @@
 
   <fragment
       android:id="@+id/productDetailsFragment"
-      android:name="com.dpfht.bookstore_koin.feature_details.view.ProductDetailsFragment"
+      android:name="com.dpfht.thestore_koin.feature_details.view.ProductDetailsFragment"
       android:label="judul"
       tools:layout="@layout/fragment_product_details">
 

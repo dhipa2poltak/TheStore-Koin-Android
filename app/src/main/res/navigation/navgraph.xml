@@ -6,7 +6,7 @@
 
   <fragment
       android:id="@+id/splashFragment"
-      android:name="com.dpfht.bookstore_koin.feature_splash.SplashFragment"
+      android:name="com.dpfht.thestore_koin.feature_splash.SplashFragment"
       android:label="Splash">
 
     <action
@@ -16,7 +16,7 @@
 
   <fragment
       android:id="@+id/listFragment"
-      android:name="com.dpfht.bookstore_koin.feature_list.view.ProductListFragment"
+      android:name="com.dpfht.thestore_koin.feature_list.view.ProductListFragment"
       android:label="List">
 
     <action
@@ -30,14 +30,14 @@
 
   <fragment
       android:id="@+id/detailsFragment"
-      android:name="com.dpfht.bookstore_koin.feature_details.view.ProductDetailsFragment"
+      android:name="com.dpfht.thestore_koin.feature_details.view.ProductDetailsFragment"
       android:label="Details">
 
   </fragment>
 
   <dialog
       android:id="@+id/errorMessageDialogFragment"
-      android:name="com.dpfht.bookstore_koin.feature_list.view.ErrorMessageDialogFragment"
+      android:name="com.dpfht.thestore_koin.feature_list.view.ErrorMessageDialogFragment"
       android:label="fragment_error_message_dialog"
       tools:layout="@layout/fragment_error_message_dialog">
     <argument

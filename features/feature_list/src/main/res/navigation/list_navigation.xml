@@ -7,7 +7,7 @@
 
   <fragment
       android:id="@+id/productListFragment"
-      android:name="com.dpfht.bookstore_koin.feature_list.view.ProductListFragment"
+      android:name="com.dpfht.thestore_koin.feature_list.view.ProductListFragment"
       android:label="Order Barang"
       tools:layout="@layout/fragment_product_list">
 
@@ -19,7 +19,7 @@
   <!--
   <dialog
       android:id="@+id/errorMessageDialogFragment"
-      android:name="com.dpfht.bookstore.feature_list.view.ErrorMessageDialogFragment"
+      android:name="com.dpfht.thestore.feature_list.view.ErrorMessageDialogFragment"
       android:label="fragment_error_message_dialog"
       tools:layout="@layout/fragment_error_message_dialog">
 
