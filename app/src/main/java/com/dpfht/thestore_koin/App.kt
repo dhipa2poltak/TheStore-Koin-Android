@@ -3,8 +3,8 @@ package com.dpfht.thestore_koin
 import android.app.Application
 import android.content.Context
 import androidx.multidex.MultiDex
-import com.dpfht.thestore_koin.di.appModule
-import com.dpfht.thestore_koin.di.networkModule
+import com.dpfht.thestore_koin.framework.di.appModule
+import com.dpfht.thestore_koin.framework.di.networkModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin

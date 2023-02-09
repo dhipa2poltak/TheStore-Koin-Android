@@ -1,6 +1,6 @@
-package com.dpfht.thestore_koin.di
+package com.dpfht.thestore_koin.framework.di
 
-import com.dpfht.thestore_koin.BuildConfig
+import com.dpfht.thestore_koin.framework.BuildConfig
 import com.dpfht.thestore_koin.framework.rest.api.RestService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

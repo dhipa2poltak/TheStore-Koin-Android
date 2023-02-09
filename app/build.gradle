@@ -4,15 +4,6 @@ plugins {
 }
 
 android {
-  signingConfigs {
-    release {
-      storeFile file('/Users/user/Documents/mykeystores/TestQasir.keystore')
-      storePassword 'TestQasir123'
-      keyAlias 'TestQasir'
-      keyPassword 'TestQasir123'
-    }
-  }
-
   compileSdk 33
 
   defaultConfig {
@@ -32,8 +23,6 @@ android {
       minifyEnabled true
       shrinkResources true
       proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-
-      signingConfig signingConfigs.release
 
       manifestPlaceholders.appNameSuffix = ""
     }
@@ -61,17 +50,14 @@ android {
     staging {
       applicationId "com.dpfht.thestore_koin.staging"
       manifestPlaceholders.appName = "TheStore-Koin-Staging"
-      buildConfigField 'String', 'BASE_URL', STAGING_BASE_URL
     }
     verify {
       applicationId "com.dpfht.thestore_koin.verify"
       manifestPlaceholders.appName = "TheStore-Koin-Verify"
-      buildConfigField 'String', 'BASE_URL', VERIFY_BASE_URL
     }
     prod {
       applicationId "com.dpfht.thestore_koin"
       manifestPlaceholders.appName = "TheStore-Koin"
-      buildConfigField 'String', 'BASE_URL', PROD_BASE_URL
     }
   }
 }
@@ -97,9 +83,4 @@ dependencies {
   implementation "androidx.multidex:multidex:2.0.1"
 
   implementation 'io.insert-koin:koin-android:3.2.0'
-
-  implementation 'com.google.code.gson:gson:2.9.0'
-  implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
-  implementation 'com.squareup.okhttp3:okhttp:4.9.3'
-  implementation 'com.squareup.okhttp3:logging-interceptor:4.9.1'
 }
