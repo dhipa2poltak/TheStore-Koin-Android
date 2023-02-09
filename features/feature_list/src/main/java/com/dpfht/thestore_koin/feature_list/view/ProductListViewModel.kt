@@ -21,24 +21,19 @@ class ProductListViewModel constructor(
 ): ViewModel() {
 
   private val mIsShowDialogLoading = MutableLiveData<Boolean>()
-  val isShowDialogLoading: LiveData<Boolean>
-    get() = mIsShowDialogLoading
+  val isShowDialogLoading: LiveData<Boolean> = mIsShowDialogLoading
 
   private val mErrorMessage = MutableLiveData<String>()
-  val errorMessage: LiveData<String>
-    get() = mErrorMessage
+  val errorMessage: LiveData<String> = mErrorMessage
 
   private val mToastMessage = MutableLiveData<String>()
-  val toastMessage: LiveData<String>
-    get() = mToastMessage
+  val toastMessage: LiveData<String> = mToastMessage
 
   private val _notifyItemInserted = MutableLiveData<Int>()
-  val notifyItemInserted: LiveData<Int>
-    get() = _notifyItemInserted
+  val notifyItemInserted: LiveData<Int> = _notifyItemInserted
 
   private val _banner = MutableLiveData<String>()
-  val banner: LiveData<String>
-    get() = _banner
+  val banner: LiveData<String> = _banner
 
   fun start() {
     if (products.isEmpty()) {
