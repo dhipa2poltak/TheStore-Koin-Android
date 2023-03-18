@@ -5,11 +5,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dpfht.thestore_koin.domain.model.DomainProduct
-import com.dpfht.thestore_koin.ext.toRupiahString
-import com.dpfht.thestore_koin.navigation.NavigationService
 import com.dpfht.thestore_koin.usecases.GetProductsUseCase
-import com.dpfht.thestore_koin.usecases.UseCaseResultWrapper.ErrorResult
-import com.dpfht.thestore_koin.usecases.UseCaseResultWrapper.Success
+import com.dpfht.thestore_koin.data.UseCaseResultWrapper.ErrorResult
+import com.dpfht.thestore_koin.data.UseCaseResultWrapper.Success
 import com.dpfht.thestore_koin.util.net.OnlineChecker
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

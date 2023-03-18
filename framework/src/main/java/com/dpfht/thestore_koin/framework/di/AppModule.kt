@@ -4,9 +4,9 @@ import android.app.Application
 import android.content.Context
 import com.dpfht.thestore_koin.data.repository.AppDataSource
 import com.dpfht.thestore_koin.data.repository.AppRepository
-import com.dpfht.thestore_koin.framework.rest.api.AppRepositoryImpl
-import com.dpfht.thestore_koin.framework.rest.api.LocalDataSourceImpl
-import com.dpfht.thestore_koin.framework.rest.api.RemoteDataSourceImpl
+import com.dpfht.thestore_koin.framework.AppRepositoryImpl
+import com.dpfht.thestore_koin.framework.LocalDataSourceImpl
+import com.dpfht.thestore_koin.framework.RemoteDataSourceImpl
 import com.dpfht.thestore_koin.framework.rest.api.RestService
 import com.dpfht.thestore_koin.util.net.DefaultOnlineChecker
 import com.dpfht.thestore_koin.util.net.OnlineChecker

@@ -1,5 +1,6 @@
 package com.dpfht.thestore_koin.usecases
 
+import com.dpfht.thestore_koin.data.UseCaseResultWrapper
 import com.dpfht.thestore_koin.domain.model.DomainDataResponse
 
 interface GetProductsUseCase {

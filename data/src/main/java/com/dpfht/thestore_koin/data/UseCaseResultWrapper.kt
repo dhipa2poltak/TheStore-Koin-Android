@@ -1,4 +1,4 @@
-package com.dpfht.thestore_koin.usecases
+package com.dpfht.thestore_koin.data
 
 sealed class UseCaseResultWrapper<out T> {
   data class Success<out T>(val value: T): UseCaseResultWrapper<T>()

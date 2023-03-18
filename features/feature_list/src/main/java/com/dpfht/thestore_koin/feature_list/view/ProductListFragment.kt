@@ -19,7 +19,7 @@ import com.dpfht.thestore_koin.feature_list.adapter.ProductListAdapter
 import com.dpfht.thestore_koin.feature_list.databinding.FragmentProductListBinding
 import com.dpfht.thestore_koin.feature_list.databinding.FragmentProductListLandBinding
 import com.dpfht.thestore_koin.feature_list.di.ListModule
-import com.dpfht.thestore_koin.navigation.NavigationService
+import com.dpfht.thestore_koin.framework.navigation.NavigationService
 import com.squareup.picasso.Picasso
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel

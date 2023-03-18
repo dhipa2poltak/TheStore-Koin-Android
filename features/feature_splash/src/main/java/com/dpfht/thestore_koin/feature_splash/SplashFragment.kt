@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.dpfht.thestore_koin.feature_splash.databinding.FragmentSplashBinding
-import com.dpfht.thestore_koin.navigation.NavigationService
+import com.dpfht.thestore_koin.framework.navigation.NavigationService
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 

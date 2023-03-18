@@ -1,9 +1,9 @@
-package com.dpfht.thestore_koin.framework.rest.api
+package com.dpfht.thestore_koin.framework
 
 import com.dpfht.thestore_koin.data.repository.AppDataSource
 import com.dpfht.thestore_koin.data.repository.AppRepository
 import com.dpfht.thestore_koin.domain.model.DomainDataResponse
-import com.dpfht.thestore_koin.usecases.UseCaseResultWrapper
+import com.dpfht.thestore_koin.data.UseCaseResultWrapper
 import com.dpfht.thestore_koin.util.net.OnlineChecker
 
 class AppRepositoryImpl(

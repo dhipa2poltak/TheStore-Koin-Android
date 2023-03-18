@@ -7,7 +7,6 @@ import com.dpfht.thestore_koin.domain.model.DomainProduct
 import com.dpfht.thestore_koin.feature_list.R
 import com.dpfht.thestore_koin.feature_list.adapter.ProductListAdapter
 import com.dpfht.thestore_koin.feature_list.view.ProductListViewModel
-import com.dpfht.thestore_koin.navigation.NavigationService
 import com.dpfht.thestore_koin.usecases.GetProductsUseCase
 import com.dpfht.thestore_koin.usecases.GetProductsUseCaseImpl
 import com.dpfht.thestore_koin.util.net.OnlineChecker

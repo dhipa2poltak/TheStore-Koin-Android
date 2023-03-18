@@ -8,7 +8,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.dpfht.thestore_koin.R.id
 import com.dpfht.thestore_koin.databinding.ActivityMainBinding
-import com.dpfht.thestore_koin.navigation.NavigationService
+import com.dpfht.thestore_koin.framework.navigation.NavigationService
 import com.dpfht.thestore_koin.navigation.NavigationServiceImpl
 import org.koin.core.context.loadKoinModules
 import org.koin.dsl.module

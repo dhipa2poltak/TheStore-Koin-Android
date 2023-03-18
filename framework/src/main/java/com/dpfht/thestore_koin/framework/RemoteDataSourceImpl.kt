@@ -1,12 +1,14 @@
-package com.dpfht.thestore_koin.framework.rest.api
+package com.dpfht.thestore_koin.framework
 
 import com.dpfht.thestore_koin.data.model.remote.toDomain
 import com.dpfht.thestore_koin.data.repository.AppDataSource
 import com.dpfht.thestore_koin.domain.model.DomainDataResponse
+import com.dpfht.thestore_koin.framework.rest.api.RestService
 import com.dpfht.thestore_koin.framework.rest.api.ResultWrapper.GenericError
 import com.dpfht.thestore_koin.framework.rest.api.ResultWrapper.NetworkError
 import com.dpfht.thestore_koin.framework.rest.api.ResultWrapper.Success
-import com.dpfht.thestore_koin.usecases.UseCaseResultWrapper
+import com.dpfht.thestore_koin.framework.rest.api.safeApiCall
+import com.dpfht.thestore_koin.data.UseCaseResultWrapper
 import kotlinx.coroutines.Dispatchers
 
 class RemoteDataSourceImpl(private val restService: RestService): AppDataSource {

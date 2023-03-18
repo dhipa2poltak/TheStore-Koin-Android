@@ -3,7 +3,7 @@ package com.dpfht.thestore_koin.navigation
 import android.os.Bundle
 import androidx.navigation.NavController
 import com.dpfht.thestore_koin.R
-import com.dpfht.thestore_koin.navigation.NavigationService
+import com.dpfht.thestore_koin.framework.navigation.NavigationService
 
 class NavigationServiceImpl(private val navController: NavController): NavigationService {
 

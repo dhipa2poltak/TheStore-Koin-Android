@@ -1,4 +1,4 @@
-package com.dpfht.thestore_koin.navigation
+package com.dpfht.thestore_koin.framework.navigation
 
 interface NavigationService {
 
