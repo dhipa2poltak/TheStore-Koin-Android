@@ -4,17 +4,17 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.dpfht.thestore_koin.domain.model.DomainProduct
-import com.dpfht.thestore_koin.usecases.GetProductsUseCase
-import com.dpfht.thestore_koin.data.UseCaseResultWrapper.ErrorResult
-import com.dpfht.thestore_koin.data.UseCaseResultWrapper.Success
-import com.dpfht.thestore_koin.util.net.OnlineChecker
+import com.dpfht.thestore_koin.domain.entity.ProductEntity
+import com.dpfht.thestore_koin.domain.usecase.GetProductsUseCase
+import com.dpfht.thestore_koin.domain.entity.Result.ErrorResult
+import com.dpfht.thestore_koin.domain.entity.Result.Success
+import com.dpfht.thestore_koin.framework.util.net.OnlineChecker
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class ProductListViewModel constructor(
   private val getProdutsUseCase: GetProductsUseCase,
-  val products: ArrayList<DomainProduct>,
+  val products: ArrayList<ProductEntity>,
   private val onlineChecker: OnlineChecker
 ): ViewModel() {
 
@@ -58,7 +58,7 @@ class ProductListViewModel constructor(
     }
   }
 
-  private fun onSuccess(banner: String, products: ArrayList<DomainProduct>) {
+  private fun onSuccess(banner: String, products: ArrayList<ProductEntity>) {
     if (banner.isNotEmpty()) {
       _banner.value = banner
     }
@@ -76,7 +76,7 @@ class ProductListViewModel constructor(
     mIsShowDialogLoading.value = false
   }
 
-  fun getProduct(position: Int): DomainProduct {
+  fun getProduct(position: Int): ProductEntity {
     return products[position]
   }
 }

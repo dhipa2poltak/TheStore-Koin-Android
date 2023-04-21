@@ -65,7 +65,6 @@ android {
 dependencies {
 
   implementation project(":framework")
-  implementation project(":data")
   implementation project(":features:feature_splash")
   implementation project(":features:feature_list")
   implementation project(":features:feature_details")

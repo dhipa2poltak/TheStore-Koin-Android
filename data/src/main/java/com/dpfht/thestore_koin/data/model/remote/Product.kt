@@ -1,7 +1,7 @@
 package com.dpfht.thestore_koin.data.model.remote
 
 import androidx.annotation.Keep
-import com.dpfht.thestore_koin.domain.model.DomainProduct
+import com.dpfht.thestore_koin.domain.entity.ProductEntity
 import com.google.gson.annotations.SerializedName
 
 @Keep
@@ -16,7 +16,7 @@ data class Product(
   val images: Image? = null
 )
 
-fun Product.toDomain(): DomainProduct {
-  return DomainProduct(productId, productName, price, stock, description, images?.toDomain())
+fun Product.toDomain(): ProductEntity {
+  return ProductEntity(productId, productName, price, stock, description, images?.toDomain())
 }
 

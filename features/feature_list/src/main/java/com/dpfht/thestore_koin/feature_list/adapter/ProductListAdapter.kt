@@ -3,13 +3,13 @@ package com.dpfht.thestore_koin.feature_list.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.dpfht.thestore_koin.ext.toRupiahString
+import com.dpfht.thestore_koin.framework.ext.toRupiahString
 import com.dpfht.thestore_koin.feature_list.databinding.RowProductBinding
-import com.dpfht.thestore_koin.domain.model.DomainProduct
+import com.dpfht.thestore_koin.domain.entity.ProductEntity
 import com.dpfht.thestore_koin.feature_list.adapter.ProductListAdapter.ProductListViewHolder
 import com.squareup.picasso.Picasso
 
-class ProductListAdapter(var products: ArrayList<DomainProduct>): RecyclerView.Adapter<ProductListViewHolder>() {
+class ProductListAdapter(var products: ArrayList<ProductEntity>): RecyclerView.Adapter<ProductListViewHolder>() {
 
   var onClickProductListener: OnClickProductListener? = null
 
@@ -34,7 +34,7 @@ class ProductListAdapter(var products: ArrayList<DomainProduct>): RecyclerView.A
 
   class ProductListViewHolder(private val binding: RowProductBinding): RecyclerView.ViewHolder(binding.root) {
 
-    fun bindData(product: DomainProduct) {
+    fun bindData(product: ProductEntity) {
       binding.tvTitle.text = product.productName
       binding.tvPrice.text = product.price.toRupiahString()
       binding.tvStockValue.text = product.stock.toString()

@@ -1,8 +1,8 @@
 package com.dpfht.thestore_koin.data.model.remote
 
 import androidx.annotation.Keep
-import com.dpfht.thestore_koin.domain.model.DomainData
-import com.dpfht.thestore_koin.domain.model.DomainDataResponse
+import com.dpfht.thestore_koin.domain.entity.DataEntity
+import com.dpfht.thestore_koin.domain.entity.DataDomain
 
 @Keep
 data class DataResponse(
@@ -11,6 +11,6 @@ data class DataResponse(
   val data: Data? = null
 )
 
-fun DataResponse.toDomain(): DomainDataResponse {
-  return DomainDataResponse(data?.toDomain() ?: DomainData("", arrayListOf()))
+fun DataResponse.toDomain(): DataDomain {
+  return DataDomain(data?.toDomain() ?: DataEntity("", arrayListOf()))
 }

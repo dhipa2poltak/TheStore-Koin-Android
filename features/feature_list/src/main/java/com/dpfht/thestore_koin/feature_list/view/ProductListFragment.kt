@@ -13,7 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.dpfht.thestore_koin.ext.toRupiahString
+import com.dpfht.thestore_koin.framework.ext.toRupiahString
 import com.dpfht.thestore_koin.feature_list.R
 import com.dpfht.thestore_koin.feature_list.adapter.ProductListAdapter
 import com.dpfht.thestore_koin.feature_list.databinding.FragmentProductListBinding
@@ -39,6 +39,8 @@ class ProductListFragment : Fragment(), KoinComponent {
 
   private var isTablet = false
 
+  private var vw: View? = null
+
   override fun onAttach(context: Context) {
     super.onAttach(context)
 
@@ -51,28 +53,31 @@ class ProductListFragment : Fragment(), KoinComponent {
   override fun onCreateView(
     inflater: LayoutInflater, container: ViewGroup?,
     savedInstanceState: Bundle?
-  ): View {
+  ): View? {
 
     isTablet = requireContext().resources.getBoolean(com.dpfht.thestore_koin.framework.R.bool.isTablet)
 
-    val view: View
     if (isTablet) {
-      val binding = FragmentProductListLandBinding.inflate(inflater, container, false)
+      if (vw == null) {
+        val binding = FragmentProductListLandBinding.inflate(inflater, container, false)
 
-      ivBanner = binding.ivBanner
-      rvProduct = binding.rvProduct
+        ivBanner = binding.ivBanner
+        rvProduct = binding.rvProduct
 
-      view = binding.root
+        vw = binding.root
+      }
     } else {
-      val binding = FragmentProductListBinding.inflate(inflater, container, false)
+      if (vw == null) {
+        val binding = FragmentProductListBinding.inflate(inflater, container, false)
 
-      ivBanner = binding.ivBanner
-      rvProduct = binding.rvProduct
+        ivBanner = binding.ivBanner
+        rvProduct = binding.rvProduct
 
-      view = binding.root
+        vw = binding.root
+      }
     }
 
-    return view
+    return vw
   }
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

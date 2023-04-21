@@ -1,7 +1,7 @@
 package com.dpfht.thestore_koin.data.model.remote
 
 import androidx.annotation.Keep
-import com.dpfht.thestore_koin.domain.model.DomainData
+import com.dpfht.thestore_koin.domain.entity.DataEntity
 
 @Keep
 data class Data(
@@ -9,6 +9,6 @@ data class Data(
   val products: List<Product> = arrayListOf()
 )
 
-fun Data.toDomain(): DomainData {
-  return DomainData(banner, ArrayList(products.map { it.toDomain() }))
+fun Data.toDomain(): DataEntity {
+  return DataEntity(banner, ArrayList(products.map { it.toDomain() }))
 }
