@@ -6,6 +6,7 @@ import com.dpfht.thestore_koin.data.datasource.AppDataSource
 import com.dpfht.thestore_koin.data.model.remote.toDomain
 import com.dpfht.thestore_koin.domain.entity.DataDomain
 import com.dpfht.thestore_koin.domain.entity.Result
+import com.dpfht.thestore_koin.domain.entity.Result.ErrorResult
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.Dispatchers
@@ -29,8 +30,10 @@ class LocalDataSourceImpl(private val assetManager: AssetManager): AppDataSource
           text += mLine
           mLine = reader.readLine()
         }
-      } catch (e: IOException) {
+      } catch (e: Exception) {
         e.printStackTrace()
+
+        return@withContext ErrorResult("error: ${e.message}")
       } finally {
         if (reader != null) {
           try {
@@ -40,15 +43,17 @@ class LocalDataSourceImpl(private val assetManager: AssetManager): AppDataSource
         }
       }
 
-      var dataResponse: DataResponse? = null
+      val dataResponse: DataResponse?
       try {
         val typeToken = object : TypeToken<DataResponse>() {}.type
         dataResponse = Gson().fromJson<DataResponse>(text, typeToken)
       } catch (e: Exception) {
         e.printStackTrace()
+
+        return@withContext ErrorResult("error: ${e.message}")
       }
 
-      Result.Success(dataResponse?.toDomain() ?: DataResponse().toDomain())
+      return@withContext Result.Success(dataResponse?.toDomain() ?: DataResponse().toDomain())
     }
   }
 }
