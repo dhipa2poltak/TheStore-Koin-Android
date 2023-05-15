@@ -37,7 +37,7 @@
 
   <dialog
       android:id="@+id/errorMessageDialogFragment"
-      android:name="com.dpfht.thestore_koin.feature_list.view.ErrorMessageDialogFragment"
+      android:name="com.dpfht.thestore_koin.feature_error_message.ErrorMessageDialogFragment"
       android:label="fragment_error_message_dialog"
       tools:layout="@layout/fragment_error_message_dialog">
     <argument

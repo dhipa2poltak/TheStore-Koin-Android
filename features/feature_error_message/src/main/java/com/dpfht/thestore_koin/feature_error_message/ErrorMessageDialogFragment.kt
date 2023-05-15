@@ -1,10 +1,10 @@
-package com.dpfht.thestore_koin.feature_list.view
+package com.dpfht.thestore_koin.feature_error_message
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.dpfht.thestore_koin.feature_list.databinding.FragmentErrorMessageDialogBinding
+import com.dpfht.thestore_koin.feature_error_message.databinding.FragmentErrorMessageDialogBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class ErrorMessageDialogFragment: BottomSheetDialogFragment() {
