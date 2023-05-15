@@ -1,0 +1,47 @@
+
+ext {
+
+  gsonVersion = '2.9.0'
+  annotationVersion = '1.5.0'
+
+  koinVersion = '3.2.0'
+  retrofitConverterGsonVersion = '2.9.0'
+  okHttpVersion = '4.9.3'
+  okHttpLoggingInterceptorVersion = '4.9.1'
+  coroutinesVersion = '1.6.4'
+
+  navigationFragmentVersion = '2.5.3'
+  navigationUIVersion = '2.5.3'
+  picassoVersion = '2.8'
+
+  dataDependencies = [
+      gson: "com.google.code.gson:gson:${gsonVersion}",
+      annotation: "androidx.annotation:annotation:${annotationVersion}"
+  ]
+
+  frameworkDependencies = [
+      koin: "io.insert-koin:koin-android:${koinVersion}",
+      gson: "com.google.code.gson:gson:${gsonVersion}",
+      retrofitConverterGson: "com.squareup.retrofit2:converter-gson:${retrofitConverterGsonVersion}",
+      okHttp: "com.squareup.okhttp3:okhttp:${okHttpVersion}",
+      okHttpLoggingInterceptor: "com.squareup.okhttp3:logging-interceptor:${okHttpLoggingInterceptorVersion}",
+      coroutines: "org.jetbrains.kotlinx:kotlinx-coroutines-android:${coroutinesVersion}"
+  ]
+
+  featureSplashDependencies = [
+      koin: "io.insert-koin:koin-android:${koinVersion}"
+  ]
+
+  featureListDependencies = [
+      navigationFragment: "androidx.navigation:navigation-fragment-ktx:${navigationFragmentVersion}",
+      navigationUI: "androidx.navigation:navigation-ui-ktx:${navigationUIVersion}",
+      koin: "io.insert-koin:koin-android:${koinVersion}",
+      picasso: "com.squareup.picasso:picasso:${picassoVersion}"
+  ]
+
+  featureDetailsDependencies = [
+      navigationFragment: "androidx.navigation:navigation-fragment-ktx:${navigationFragmentVersion}",
+      navigationUI: "androidx.navigation:navigation-ui-ktx:${navigationUIVersion}",
+      picasso: "com.squareup.picasso:picasso:${picassoVersion}"
+  ]
+}

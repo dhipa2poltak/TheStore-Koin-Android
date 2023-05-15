@@ -48,6 +48,8 @@ android {
 
 dependencies {
 
+  def featureListDependencies = rootProject.ext.featureListDependencies
+
   implementation project(":framework")
   implementation project(":domain")
   implementation project(":features:feature_details")
@@ -59,10 +61,9 @@ dependencies {
   androidTestImplementation 'androidx.test.ext:junit:1.1.5'
   androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
-  implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
-  implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
+  implementation featureListDependencies.navigationFragment
+  implementation featureListDependencies.navigationUI
 
-  implementation 'io.insert-koin:koin-android:3.2.0'
-  //implementation "io.insert-koin:koin-android-viewmodel:3.2.0"
-  implementation 'com.squareup.picasso:picasso:2.8'
+  implementation featureListDependencies.koin
+  implementation featureListDependencies.picasso
 }
