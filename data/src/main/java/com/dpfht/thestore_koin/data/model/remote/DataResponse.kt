@@ -6,11 +6,13 @@ import com.dpfht.thestore_koin.domain.entity.DataDomain
 
 @Keep
 data class DataResponse(
-  val status: String = "",
-  val message: String = "",
+  val status: String? = "",
+  val message: String? = "",
   val data: Data? = null
 )
 
 fun DataResponse.toDomain(): DataDomain {
-  return DataDomain(data?.toDomain() ?: DataEntity("", arrayListOf()))
+  return DataDomain(
+    data?.toDomain() ?: DataEntity("", arrayListOf())
+  )
 }

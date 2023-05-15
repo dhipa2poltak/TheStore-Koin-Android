@@ -26,15 +26,15 @@ object ListModule {
     }
   }
 
-  fun provideProducts(): ArrayList<ProductEntity> {
+  private fun provideProducts(): ArrayList<ProductEntity> {
     return arrayListOf()
   }
 
-  fun provideGetProductsUseCase(appRepository: AppRepository): GetProductsUseCase {
+  private fun provideGetProductsUseCase(appRepository: AppRepository): GetProductsUseCase {
     return GetProductsUseCaseImpl(appRepository)
   }
 
-  fun provideProductListViewModel(
+  private fun provideProductListViewModel(
     getProductsUseCase: GetProductsUseCase,
     products: ArrayList<ProductEntity>,
     onlineChecker: OnlineChecker
@@ -42,11 +42,11 @@ object ListModule {
     return ProductListViewModel(getProductsUseCase, products, onlineChecker)
   }
 
-  fun provideProductListAdapter(products: ArrayList<ProductEntity>): ProductListAdapter {
+  private fun provideProductListAdapter(products: ArrayList<ProductEntity>): ProductListAdapter {
     return ProductListAdapter(products)
   }
 
-  fun provideLoadingDialog(context: Context): AlertDialog {
+  private fun provideLoadingDialog(context: Context): AlertDialog {
     return AlertDialog.Builder(context)
       .setCancelable(false)
       .setView(R.layout.dialog_loading)

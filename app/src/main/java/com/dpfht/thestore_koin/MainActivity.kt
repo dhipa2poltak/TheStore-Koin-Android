@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import com.dpfht.thestore_koin.R.id
 import com.dpfht.thestore_koin.databinding.ActivityMainBinding
@@ -24,10 +25,14 @@ class MainActivity : AppCompatActivity() {
     setToolbar()
     setContentView(binding.root)
 
+    val appBarConfiguration = AppBarConfiguration(
+      setOf(id.listFragment)
+    )
+
     val navHostFragment =
       supportFragmentManager.findFragmentById(id.my_nav_host_fragment) as NavHostFragment
     navController = navHostFragment.navController
-    NavigationUI.setupActionBarWithNavController(this, navController)
+    NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration)
 
     loadKoinModules(module {
       single<NavigationService> { NavigationServiceImpl(navController) }

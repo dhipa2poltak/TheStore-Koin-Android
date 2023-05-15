@@ -17,7 +17,7 @@
   <fragment
       android:id="@+id/listFragment"
       android:name="com.dpfht.thestore_koin.feature_list.view.ProductListFragment"
-      android:label="List">
+      android:label="Order Barang">
 
     <action
         android:id="@+id/navigateListToDetails"

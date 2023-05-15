@@ -5,10 +5,10 @@ import com.dpfht.thestore_koin.domain.entity.ImageEntity
 
 @Keep
 data class Image(
-  val thumbnail: String = "",
-  val large: String = ""
+  val thumbnail: String? = "",
+  val large: String? = ""
 )
 
 fun Image.toDomain(): ImageEntity {
-  return ImageEntity(thumbnail, large)
+  return ImageEntity(thumbnail ?: "", large ?: "")
 }

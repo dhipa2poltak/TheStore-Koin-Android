@@ -19,7 +19,7 @@ suspend fun <T> safeApiCall(dispatcher: CoroutineDispatcher, apiCall: suspend ()
           //val code = t.code()
           //val errorResponse = convertErrorBody(t)
           //GenericError(code, t)
-          ErrorResult(t.message())
+          ErrorResult(t.message ?: "")
         }
         else -> {
           ErrorResult("error in conversion")
