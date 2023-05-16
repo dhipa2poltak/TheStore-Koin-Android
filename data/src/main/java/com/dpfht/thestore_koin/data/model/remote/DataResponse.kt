@@ -13,6 +13,6 @@ data class DataResponse(
 
 fun DataResponse.toDomain(): DataDomain {
   return DataDomain(
-    data?.toDomain() ?: DataEntity("", arrayListOf())
+    data?.toDomain() ?: DataEntity("", listOf())
   )
 }

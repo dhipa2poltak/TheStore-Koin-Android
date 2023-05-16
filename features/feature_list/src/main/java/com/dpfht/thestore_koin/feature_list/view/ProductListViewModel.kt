@@ -62,7 +62,7 @@ class ProductListViewModel constructor(
     }
   }
 
-  private fun onSuccess(banner: String, products: ArrayList<ProductEntity>) {
+  private fun onSuccess(banner: String, products: List<ProductEntity>) {
     if (banner.isNotEmpty()) {
       _banner.value = banner
     }

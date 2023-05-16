@@ -6,12 +6,12 @@ import com.dpfht.thestore_koin.domain.entity.DataEntity
 @Keep
 data class Data(
   val banner: String? = "",
-  val products: List<Product>? = arrayListOf()
+  val products: List<Product>? = listOf()
 )
 
 fun Data.toDomain(): DataEntity {
   return DataEntity(
     banner ?: "",
-    ArrayList(products?.map { it.toDomain() } ?: arrayListOf())
+    ArrayList(products?.map { it.toDomain() } ?: listOf())
   )
 }
