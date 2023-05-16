@@ -126,8 +126,7 @@ class ProductListFragment : Fragment(), KoinComponent {
     swRefresh.setOnRefreshListener {
       adapter.products.clear()
       adapter.notifyDataSetChanged()
-      viewModel.clearProducts()
-      viewModel.start()
+      viewModel.refresh()
     }
 
     observeViewModel()
@@ -137,7 +136,7 @@ class ProductListFragment : Fragment(), KoinComponent {
 
   private fun observeViewModel() {
     viewModel.isShowDialogLoading.observe(viewLifecycleOwner) { isLoading ->
-      if (isLoading) {
+      if (isLoading && !swRefresh.isRefreshing) {
         prgDialog.show()
       } else {
         prgDialog.dismiss()

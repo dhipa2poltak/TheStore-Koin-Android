@@ -84,7 +84,8 @@ class ProductListViewModel constructor(
     return products[position]
   }
 
-  fun clearProducts() {
+  fun refresh() {
     products.clear()
+    start()
   }
 }
