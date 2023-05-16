@@ -35,9 +35,13 @@ class ProductListViewModel constructor(
 
   fun start() {
     if (products.isEmpty()) {
-      if (!onlineChecker.isOnline()) {
-        mToastMessage.value = "you are in offline mode"
-      }
+      mToastMessage.postValue(
+        if (!onlineChecker.isOnline()) {
+          "you are in offline mode"
+        } else {
+          ""
+        }
+      )
 
       getProducts()
     }
@@ -78,5 +82,9 @@ class ProductListViewModel constructor(
 
   fun getProduct(position: Int): ProductEntity {
     return products[position]
+  }
+
+  fun clearProducts() {
+    products.clear()
   }
 }

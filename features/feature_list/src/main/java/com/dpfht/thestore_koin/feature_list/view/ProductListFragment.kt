@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.dpfht.thestore_koin.framework.ext.toRupiahString
 import com.dpfht.thestore_koin.feature_list.R
 import com.dpfht.thestore_koin.feature_list.adapter.ProductListAdapter
@@ -35,6 +36,7 @@ class ProductListFragment : Fragment(), KoinComponent {
   private val adapter: ProductListAdapter by inject()
 
   private lateinit var ivBanner: ImageView
+  private lateinit var swRefresh: SwipeRefreshLayout
   private lateinit var rvProduct: RecyclerView
 
   private var isTablet = false
@@ -62,6 +64,7 @@ class ProductListFragment : Fragment(), KoinComponent {
         val binding = FragmentProductListLandBinding.inflate(inflater, container, false)
 
         ivBanner = binding.ivBanner
+        swRefresh = binding.swRefresh
         rvProduct = binding.rvProduct
 
         vw = binding.root
@@ -71,6 +74,7 @@ class ProductListFragment : Fragment(), KoinComponent {
         val binding = FragmentProductListBinding.inflate(inflater, container, false)
 
         ivBanner = binding.ivBanner
+        swRefresh = binding.swRefresh
         rvProduct = binding.rvProduct
 
         vw = binding.root
@@ -119,11 +123,25 @@ class ProductListFragment : Fragment(), KoinComponent {
       }
     }
 
+    swRefresh.setOnRefreshListener {
+      adapter.products.clear()
+      adapter.notifyDataSetChanged()
+      viewModel.clearProducts()
+      viewModel.start()
+    }
+
+    observeViewModel()
+
+    viewModel.start()
+  }
+
+  private fun observeViewModel() {
     viewModel.isShowDialogLoading.observe(viewLifecycleOwner) { isLoading ->
       if (isLoading) {
         prgDialog.show()
       } else {
         prgDialog.dismiss()
+        swRefresh.isRefreshing = false
       }
     }
 
@@ -153,8 +171,6 @@ class ProductListFragment : Fragment(), KoinComponent {
         showErrorMessage(msg)
       }
     }
-
-    viewModel.start()
   }
 
   private fun setToolbar() {
