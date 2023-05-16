@@ -13,6 +13,7 @@ ext {
   navigationFragmentVersion = '2.5.3'
   navigationUIVersion = '2.5.3'
   picassoVersion = '2.8'
+  multiDexVersion = '2.0.1'
 
   dataDependencies = [
       gson: "com.google.code.gson:gson:${gsonVersion}",
@@ -26,6 +27,13 @@ ext {
       okHttp: "com.squareup.okhttp3:okhttp:${okHttpVersion}",
       okHttpLoggingInterceptor: "com.squareup.okhttp3:logging-interceptor:${okHttpLoggingInterceptorVersion}",
       coroutines: "org.jetbrains.kotlinx:kotlinx-coroutines-android:${coroutinesVersion}"
+  ]
+
+  appDependencies = [
+      navigationFragment: "androidx.navigation:navigation-fragment-ktx:${navigationFragmentVersion}",
+      navigationUI: "androidx.navigation:navigation-ui-ktx:${navigationUIVersion}",
+      multiDex: "androidx.multidex:multidex:${multiDexVersion}",
+      koin: "io.insert-koin:koin-android:${koinVersion}",
   ]
 
   featureSplashDependencies = [
