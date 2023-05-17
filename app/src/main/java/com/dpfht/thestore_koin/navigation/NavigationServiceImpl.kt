@@ -22,7 +22,7 @@ class NavigationServiceImpl(private val navController: NavController): Navigatio
     bundle.putString("image", image)
 
     if (navController != null) {
-      navController.navigate(R.id.navigateListToDetails, bundle)
+      navController.navigate(com.dpfht.thestore_koin.feature_details.R.id.productDetailsFragment, bundle)
     } else {
       this.navController.navigate(R.id.navigateListToDetails, bundle)
     }
