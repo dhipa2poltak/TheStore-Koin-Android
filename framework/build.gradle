@@ -63,4 +63,5 @@ dependencies {
   implementation frameworkDependencies.okHttpLoggingInterceptor
 
   implementation frameworkDependencies.coroutines
+  implementation frameworkDependencies.navigationUI
 }

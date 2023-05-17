@@ -14,14 +14,18 @@ class NavigationServiceImpl(private val navController: NavController): Navigatio
     navController.graph = navGraph
   }
 
-  override fun navigateFromListToDetails(title: String, price: String, desc: String, image: String) {
+  override fun navigateFromListToDetails(title: String, price: String, desc: String, image: String, navController: NavController?) {
     val bundle = Bundle()
     bundle.putString("title", title)
     bundle.putString("price", price)
     bundle.putString("desc", desc)
     bundle.putString("image", image)
 
-    navController.navigate(R.id.navigateListToDetails, bundle)
+    if (navController != null) {
+      navController.navigate(R.id.navigateListToDetails, bundle)
+    } else {
+      this.navController.navigate(R.id.navigateListToDetails, bundle)
+    }
   }
 
   override fun navigateFromListToError(message: String) {

@@ -105,19 +105,20 @@ class ProductListFragment : Fragment(), KoinComponent {
           val navHostFragment =
             childFragmentManager.findFragmentById(R.id.details_nav_container) as NavHostFragment
 
-          val bundle = Bundle()
-          bundle.putString("title", product.productName)
-          bundle.putString("price", "${product.price.toRupiahString()} / pcs")
-          bundle.putString("desc", product.description)
-          bundle.putString("image", product.images?.large ?: "")
-
-          navHostFragment.navController.navigate(com.dpfht.thestore_koin.feature_details.R.id.productDetailsFragment, bundle)
+          navigationService.navigateFromListToDetails(
+            product.productName,
+            "${product.price.toRupiahString()} / pcs",
+            product.description,
+            product.images?.large ?: "",
+            navHostFragment.navController
+          )
         } else {
           navigationService.navigateFromListToDetails(
             product.productName,
             "${product.price.toRupiahString()} / pcs",
             product.description,
-            product.images?.large ?: ""
+            product.images?.large ?: "",
+            null
           )
         }
       }

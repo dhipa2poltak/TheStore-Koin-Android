@@ -48,9 +48,9 @@ class ProductListViewModel constructor(
   }
 
   private fun getProducts() {
-    mIsShowDialogLoading.value = true
+    mIsShowDialogLoading.postValue(true)
 
-    viewModelScope.launch(Dispatchers.Main) {
+    viewModelScope.launch {
       when (val result = getProdutsUseCase()) {
         is Success -> {
           onSuccess(result.value.data.banner, result.value.data.products)
@@ -63,21 +63,25 @@ class ProductListViewModel constructor(
   }
 
   private fun onSuccess(banner: String, products: List<ProductEntity>) {
-    if (banner.isNotEmpty()) {
-      _banner.value = banner
-    }
+    viewModelScope.launch(Dispatchers.Main) {
+      if (banner.isNotEmpty()) {
+        _banner.value = banner
+      }
 
-    for (product in products) {
-      this.products.add(product)
-      _notifyItemInserted.value = this.products.size - 1
-    }
+      for (product in products) {
+        this@ProductListViewModel.products.add(product)
+        _notifyItemInserted.value = this@ProductListViewModel.products.size - 1
+      }
 
-    mIsShowDialogLoading.value = false
+      mIsShowDialogLoading.value = false
+    }
   }
 
   private fun onError(message: String) {
-    mErrorMessage.value = message
-    mIsShowDialogLoading.value = false
+    viewModelScope.launch(Dispatchers.Main) {
+      mErrorMessage.value = message
+      mIsShowDialogLoading.value = false
+    }
   }
 
   fun getProduct(position: Int): ProductEntity {

@@ -26,7 +26,8 @@ ext {
       retrofitConverterGson: "com.squareup.retrofit2:converter-gson:${retrofitConverterGsonVersion}",
       okHttp: "com.squareup.okhttp3:okhttp:${okHttpVersion}",
       okHttpLoggingInterceptor: "com.squareup.okhttp3:logging-interceptor:${okHttpLoggingInterceptorVersion}",
-      coroutines: "org.jetbrains.kotlinx:kotlinx-coroutines-android:${coroutinesVersion}"
+      coroutines: "org.jetbrains.kotlinx:kotlinx-coroutines-android:${coroutinesVersion}",
+      navigationUI: "androidx.navigation:navigation-ui-ktx:${navigationUIVersion}",
   ]
 
   appDependencies = [
