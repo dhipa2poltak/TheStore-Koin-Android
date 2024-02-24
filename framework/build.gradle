@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-  compileSdk 33
+  compileSdk ConfigData.compileSdkVersion
 
   defaultConfig {
-    minSdk 19
-    targetSdk 33
+    minSdk ConfigData.minSdkVersion
+    targetSdk ConfigData.targetSdkVersion
 
     testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     consumerProguardFiles "consumer-rules.pro"
@@ -46,22 +46,20 @@ android {
 
 dependencies {
 
-  def frameworkDependencies = rootProject.ext.frameworkDependencies
-
   implementation project(":domain")
   implementation project(":data")
 
-  testImplementation 'junit:junit:4.13.2'
-  androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-  androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+  testImplementation Deps.jUnit
+  androidTestImplementation Deps.jUnitExt
+  androidTestImplementation Deps.espresso
 
-  implementation frameworkDependencies.koin
+  implementation Deps.koin
 
-  implementation frameworkDependencies.gson
-  implementation frameworkDependencies.retrofitConverterGson
-  implementation frameworkDependencies.okHttp
-  implementation frameworkDependencies.okHttpLoggingInterceptor
+  implementation Deps.gson
+  implementation Deps.retrofitConverterGson
+  implementation Deps.okHttp
+  implementation Deps.okHttpLoggingInterceptor
 
-  implementation frameworkDependencies.coroutines
-  implementation frameworkDependencies.navigationUI
+  implementation Deps.coroutines
+  implementation Deps.navigationUI
 }

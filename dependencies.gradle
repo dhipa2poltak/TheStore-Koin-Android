@@ -1,56 +1,53 @@
 
 ext {
 
-  gsonVersion = '2.9.0'
-  annotationVersion = '1.5.0'
-
-  koinVersion = '3.2.0'
-  retrofitConverterGsonVersion = '2.9.0'
-  okHttpVersion = '4.9.3'
-  okHttpLoggingInterceptorVersion = '4.9.1'
-  coroutinesVersion = '1.6.4'
-
-  navigationFragmentVersion = '2.5.3'
-  navigationUIVersion = '2.5.3'
-  picassoVersion = '2.8'
-  multiDexVersion = '2.0.1'
-
-  dataDependencies = [
-      gson: "com.google.code.gson:gson:${gsonVersion}",
-      annotation: "androidx.annotation:annotation:${annotationVersion}"
+  ConfigData = [
+      compileSdkVersion: 33,
+      minSdkVersion: 19,
+      targetSdkVersion: 33
   ]
 
-  frameworkDependencies = [
-      koin: "io.insert-koin:koin-android:${koinVersion}",
-      gson: "com.google.code.gson:gson:${gsonVersion}",
-      retrofitConverterGson: "com.squareup.retrofit2:converter-gson:${retrofitConverterGsonVersion}",
-      okHttp: "com.squareup.okhttp3:okhttp:${okHttpVersion}",
-      okHttpLoggingInterceptor: "com.squareup.okhttp3:logging-interceptor:${okHttpLoggingInterceptorVersion}",
-      coroutines: "org.jetbrains.kotlinx:kotlinx-coroutines-android:${coroutinesVersion}",
-      navigationUI: "androidx.navigation:navigation-ui-ktx:${navigationUIVersion}",
+  Versions = [
+      coreKtx: '1.9.0',
+      appCompat: '1.6.1',
+      material: '1.8.0',
+      constraintLayout: '2.1.4',
+      jUnit: '4.13.2',
+      jUnitExt: '1.1.5',
+      espresso: '3.5.1',
+      gson: '2.9.0',
+      annotation: '1.5.0',
+      koin: '3.2.0',
+      retrofitConverterGson: '2.9.0',
+      okHttp: '4.9.3',
+      okHttpLoggingInterceptor: '4.9.1',
+      coroutines: '1.6.4',
+      navigationFragment: '2.5.3',
+      navigationUI: '2.5.3',
+      picasso: '2.8',
+      multiDex: '2.0.1',
+      swipeRefreshLayout: '1.1.0'
   ]
 
-  appDependencies = [
-      navigationFragment: "androidx.navigation:navigation-fragment-ktx:${navigationFragmentVersion}",
-      navigationUI: "androidx.navigation:navigation-ui-ktx:${navigationUIVersion}",
-      multiDex: "androidx.multidex:multidex:${multiDexVersion}",
-      koin: "io.insert-koin:koin-android:${koinVersion}",
-  ]
-
-  featureSplashDependencies = [
-      koin: "io.insert-koin:koin-android:${koinVersion}"
-  ]
-
-  featureListDependencies = [
-      navigationFragment: "androidx.navigation:navigation-fragment-ktx:${navigationFragmentVersion}",
-      navigationUI: "androidx.navigation:navigation-ui-ktx:${navigationUIVersion}",
-      koin: "io.insert-koin:koin-android:${koinVersion}",
-      picasso: "com.squareup.picasso:picasso:${picassoVersion}"
-  ]
-
-  featureDetailsDependencies = [
-      navigationFragment: "androidx.navigation:navigation-fragment-ktx:${navigationFragmentVersion}",
-      navigationUI: "androidx.navigation:navigation-ui-ktx:${navigationUIVersion}",
-      picasso: "com.squareup.picasso:picasso:${picassoVersion}"
+  Deps = [
+      coreKtx: "androidx.core:core-ktx:${Versions.coreKtx}",
+      appCompat: "androidx.appcompat:appcompat:${Versions.appCompat}",
+      material: "com.google.android.material:material:${Versions.material}",
+      constraintLayout: "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}",
+      jUnit: "junit:junit:${Versions.jUnit}",
+      jUnitExt: "androidx.test.ext:junit:${Versions.jUnitExt}",
+      espresso: "androidx.test.espresso:espresso-core:${Versions.espresso}",
+      gson: "com.google.code.gson:gson:${Versions.gson}",
+      annotation: "androidx.annotation:annotation:${Versions.annotation}",
+      koin: "io.insert-koin:koin-android:${Versions.koin}",
+      retrofitConverterGson: "com.squareup.retrofit2:converter-gson:${Versions.retrofitConverterGson}",
+      okHttp: "com.squareup.okhttp3:okhttp:${Versions.okHttp}",
+      okHttpLoggingInterceptor: "com.squareup.okhttp3:logging-interceptor:${Versions.okHttpLoggingInterceptor}",
+      coroutines: "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}",
+      navigationFragment: "androidx.navigation:navigation-fragment-ktx:${Versions.navigationFragment}",
+      navigationUI: "androidx.navigation:navigation-ui-ktx:${Versions.navigationUI}",
+      multiDex: "androidx.multidex:multidex:${Versions.multiDex}",
+      picasso: "com.squareup.picasso:picasso:${Versions.picasso}",
+      swipeRefreshLayout: "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.swipeRefreshLayout}"
   ]
 }

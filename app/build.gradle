@@ -4,12 +4,12 @@ plugins {
 }
 
 android {
-  compileSdk 33
+  compileSdk ConfigData.compileSdkVersion
 
   defaultConfig {
     applicationId "com.dpfht.thestore_koin"
-    minSdk 19
-    targetSdk 33
+    minSdk ConfigData.minSdkVersion
+    targetSdk ConfigData.targetSdkVersion
     versionCode 1
     versionName "1.0"
 
@@ -64,26 +64,24 @@ android {
 
 dependencies {
 
-  def appDependencies = rootProject.ext.appDependencies
-
   implementation project(":framework")
   implementation project(":features:feature_splash")
   implementation project(":features:feature_error_message")
   implementation project(":features:feature_list")
   implementation project(":features:feature_details")
 
-  implementation 'androidx.core:core-ktx:1.9.0'
-  implementation 'androidx.appcompat:appcompat:1.6.1'
-  implementation 'com.google.android.material:material:1.8.0'
-  implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-  testImplementation 'junit:junit:4.13.2'
-  androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-  androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+  implementation Deps.coreKtx
+  implementation Deps.appCompat
+  implementation Deps.material
+  implementation Deps.constraintLayout
+  testImplementation Deps.jUnit
+  androidTestImplementation Deps.jUnitExt
+  androidTestImplementation Deps.espresso
 
-  implementation appDependencies.navigationFragment
-  implementation appDependencies.navigationUI
+  implementation Deps.navigationFragment
+  implementation Deps.navigationUI
 
-  implementation appDependencies.multiDex
+  implementation Deps.multiDex
 
-  implementation appDependencies.koin
+  implementation Deps.koin
 }
