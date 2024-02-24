@@ -1,8 +1,6 @@
 package com.dpfht.thestore_koin
 
 import android.app.Application
-import android.content.Context
-import androidx.multidex.MultiDex
 import com.dpfht.thestore_koin.framework.Config
 import com.dpfht.thestore_koin.framework.di.appModule
 import com.dpfht.thestore_koin.framework.di.networkModule
@@ -21,10 +19,5 @@ class App: Application() {
       androidLogger()
       modules(appModule, networkModule)
     }
-  }
-
-  override fun attachBaseContext(base: Context) {
-    super.attachBaseContext(base)
-    MultiDex.install(this)
   }
 }

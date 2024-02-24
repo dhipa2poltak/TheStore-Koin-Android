@@ -2,9 +2,9 @@
 ext {
 
   ConfigData = [
-      compileSdkVersion: 33,
-      minSdkVersion: 19,
-      targetSdkVersion: 33
+      compileSdkVersion: 34,
+      minSdkVersion: 21,
+      targetSdkVersion: 34
   ]
 
   Versions = [
@@ -25,7 +25,6 @@ ext {
       navigationFragment: '2.5.3',
       navigationUI: '2.5.3',
       picasso: '2.8',
-      multiDex: '2.0.1',
       swipeRefreshLayout: '1.1.0'
   ]
 
@@ -46,7 +45,6 @@ ext {
       coroutines: "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}",
       navigationFragment: "androidx.navigation:navigation-fragment-ktx:${Versions.navigationFragment}",
       navigationUI: "androidx.navigation:navigation-ui-ktx:${Versions.navigationUI}",
-      multiDex: "androidx.multidex:multidex:${Versions.multiDex}",
       picasso: "com.squareup.picasso:picasso:${Versions.picasso}",
       swipeRefreshLayout: "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.swipeRefreshLayout}"
   ]
