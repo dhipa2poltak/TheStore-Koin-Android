@@ -4,9 +4,8 @@ import android.content.res.AssetManager
 import com.dpfht.thestore_koin.data.model.remote.DataResponse
 import com.dpfht.thestore_koin.data.datasource.AppDataSource
 import com.dpfht.thestore_koin.data.model.remote.toDomain
+import com.dpfht.thestore_koin.domain.entity.AppException
 import com.dpfht.thestore_koin.domain.entity.DataDomain
-import com.dpfht.thestore_koin.domain.entity.Result
-import com.dpfht.thestore_koin.domain.entity.Result.ErrorResult
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.Dispatchers
@@ -17,7 +16,7 @@ import java.io.InputStreamReader
 
 class LocalDataSourceImpl(private val assetManager: AssetManager): AppDataSource {
 
-  override suspend fun getProducts(): Result<DataDomain> {
+  override suspend fun getProducts(): DataDomain {
     return withContext(Dispatchers.IO) {
       var text = ""
 
@@ -33,7 +32,7 @@ class LocalDataSourceImpl(private val assetManager: AssetManager): AppDataSource
       } catch (e: Exception) {
         e.printStackTrace()
 
-        return@withContext ErrorResult("error: ${e.message}")
+        throw AppException(e.message ?: "")
       } finally {
         if (reader != null) {
           try {
@@ -50,10 +49,10 @@ class LocalDataSourceImpl(private val assetManager: AssetManager): AppDataSource
       } catch (e: Exception) {
         e.printStackTrace()
 
-        return@withContext ErrorResult("error: ${e.message}")
+        throw AppException(e.message ?: "")
       }
 
-      return@withContext Result.Success(dataResponse?.toDomain() ?: DataResponse().toDomain())
+      return@withContext dataResponse?.toDomain() ?: DataResponse().toDomain()
     }
   }
 }

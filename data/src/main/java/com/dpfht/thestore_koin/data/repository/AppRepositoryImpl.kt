@@ -4,7 +4,6 @@ import com.dpfht.thestore_koin.data.datasource.AppDataSource
 import com.dpfht.thestore_koin.data.datasource.NetworkStateDataSource
 import com.dpfht.thestore_koin.domain.repository.AppRepository
 import com.dpfht.thestore_koin.domain.entity.DataDomain
-import com.dpfht.thestore_koin.domain.entity.Result
 
 class AppRepositoryImpl(
   private val remoteDataSource: AppDataSource,
@@ -12,7 +11,7 @@ class AppRepositoryImpl(
   private val onlineChecker: NetworkStateDataSource
 ): AppRepository {
 
-  override suspend fun getProducts(): Result<DataDomain> {
+  override suspend fun getProducts(): DataDomain {
     return if (onlineChecker.isOnline())
       remoteDataSource.getProducts()
     else

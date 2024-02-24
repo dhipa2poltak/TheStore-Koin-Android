@@ -2,10 +2,8 @@ package com.dpfht.thestore_koin.framework.data.datasource.remote
 
 import com.dpfht.thestore_koin.data.datasource.AppDataSource
 import com.dpfht.thestore_koin.data.model.remote.toDomain
+import com.dpfht.thestore_koin.domain.entity.AppException
 import com.dpfht.thestore_koin.domain.entity.DataDomain
-import com.dpfht.thestore_koin.domain.entity.Result
-import com.dpfht.thestore_koin.domain.entity.Result.ErrorResult
-import com.dpfht.thestore_koin.domain.entity.Result.Success
 import com.dpfht.thestore_koin.framework.data.datasource.remote.rest.RestService
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
@@ -15,25 +13,25 @@ import java.io.IOException
 
 class RemoteDataSourceImpl(private val restService: RestService): AppDataSource {
 
-  override suspend fun getProducts(): Result<DataDomain> {
+  override suspend fun getProducts(): DataDomain {
     return safeApiCall(Dispatchers.IO) { restService.getProducts().toDomain() }
   }
 
-  private suspend fun <T> safeApiCall(dispatcher: CoroutineDispatcher, apiCall: suspend () -> T): Result<T> {
+  private suspend fun <T> safeApiCall(dispatcher: CoroutineDispatcher, apiCall: suspend () -> T): T {
     return withContext(dispatcher) {
       try {
-        Success(apiCall.invoke())
+        apiCall.invoke()
       } catch (t: Throwable) {
-        when (t) {
-          is IOException -> ErrorResult("error in connection")
+        throw when (t) {
+          is IOException -> AppException("error in connection")
           is HttpException -> {
             //val code = t.code()
             //val errorResponse = convertErrorBody(t)
             //GenericError(code, t)
-            ErrorResult(t.message ?: "")
+            AppException(t.message ?: "")
           }
           else -> {
-            ErrorResult("error in conversion")
+            AppException("error in conversion")
           }
         }
       }

@@ -8,9 +8,9 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import com.dpfht.thestore_koin.databinding.ActivityMainBinding
-import com.dpfht.thestore_koin.framework.R as frameworkR
 import com.dpfht.thestore_koin.framework.navigation.NavigationService
 import com.dpfht.thestore_koin.navigation.NavigationServiceImpl
+import com.dpfht.thestore_koin.navigation.R as navigationR
 import org.koin.core.context.loadKoinModules
 import org.koin.dsl.module
 
@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
     setContentView(binding.root)
 
     val appBarConfiguration = AppBarConfiguration(
-      setOf(frameworkR.id.listFragment)
+      setOf(navigationR.id.listFragment)
     )
 
     val navHostFragment =

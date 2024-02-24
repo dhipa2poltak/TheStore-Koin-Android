@@ -3,13 +3,12 @@ package com.dpfht.thestore_koin.navigation
 import android.os.Bundle
 import androidx.navigation.NavController
 import com.dpfht.thestore_koin.framework.navigation.NavigationService
-import com.dpfht.thestore_koin.framework.R as frameworkR
 
 class NavigationServiceImpl(private val navController: NavController): NavigationService {
 
   override fun navigateFromSplashToList() {
     val navGraph = navController.navInflater.inflate(R.navigation.nav_graph)
-    navGraph.setStartDestination(frameworkR.id.listFragment)
+    navGraph.setStartDestination(R.id.listFragment)
 
     navController.graph = navGraph
   }

@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dpfht.thestore_koin.domain.entity.ProductEntity
 import com.dpfht.thestore_koin.domain.usecase.GetProductsUseCase
-import com.dpfht.thestore_koin.domain.entity.Result.ErrorResult
+import com.dpfht.thestore_koin.domain.entity.Result.Error
 import com.dpfht.thestore_koin.domain.entity.Result.Success
 import com.dpfht.thestore_koin.framework.data.datasource.local.onlinechecker.OnlineChecker
 import kotlinx.coroutines.Dispatchers
@@ -55,7 +55,7 @@ class ProductListViewModel constructor(
         is Success -> {
           onSuccess(result.value.data.banner, result.value.data.products)
         }
-        is ErrorResult -> {
+        is Error -> {
           onError(result.message)
         }
       }
