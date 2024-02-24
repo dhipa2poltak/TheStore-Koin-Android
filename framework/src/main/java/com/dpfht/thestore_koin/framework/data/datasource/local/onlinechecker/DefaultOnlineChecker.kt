@@ -1,4 +1,4 @@
-package com.dpfht.thestore_koin.framework.util.net
+package com.dpfht.thestore_koin.framework.data.datasource.local.onlinechecker
 
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -13,7 +13,7 @@ import android.os.Build.VERSION.SDK_INT
 import android.os.Build.VERSION_CODES.LOLLIPOP
 import android.os.Handler
 import android.util.Log
-import com.dpfht.thestore_koin.framework.util.net.OnlineChecker.OnlineCheckerListener
+import com.dpfht.thestore_koin.framework.data.datasource.local.onlinechecker.OnlineChecker.OnlineCheckerListener
 
 
 class DefaultOnlineChecker(private val context: Context) : OnlineChecker {

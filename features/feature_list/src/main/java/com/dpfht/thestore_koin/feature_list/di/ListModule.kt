@@ -9,7 +9,7 @@ import com.dpfht.thestore_koin.feature_list.adapter.ProductListAdapter
 import com.dpfht.thestore_koin.feature_list.view.ProductListViewModel
 import com.dpfht.thestore_koin.domain.usecase.GetProductsUseCase
 import com.dpfht.thestore_koin.domain.usecase.GetProductsUseCaseImpl
-import com.dpfht.thestore_koin.framework.util.net.OnlineChecker
+import com.dpfht.thestore_koin.framework.data.datasource.local.onlinechecker.OnlineChecker
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 

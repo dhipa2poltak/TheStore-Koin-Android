@@ -1,4 +1,4 @@
-package com.dpfht.thestore_koin.framework.data.datasource
+package com.dpfht.thestore_koin.framework.data.datasource.local
 
 import android.content.res.AssetManager
 import com.dpfht.thestore_koin.data.model.remote.DataResponse
@@ -38,7 +38,7 @@ class LocalDataSourceImpl(private val assetManager: AssetManager): AppDataSource
         if (reader != null) {
           try {
             reader.close()
-          } catch (e: IOException) {
+          } catch (_: IOException) {
           }
         }
       }

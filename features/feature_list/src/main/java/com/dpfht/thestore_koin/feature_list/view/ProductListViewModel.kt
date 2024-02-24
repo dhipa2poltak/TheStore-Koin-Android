@@ -8,7 +8,7 @@ import com.dpfht.thestore_koin.domain.entity.ProductEntity
 import com.dpfht.thestore_koin.domain.usecase.GetProductsUseCase
 import com.dpfht.thestore_koin.domain.entity.Result.ErrorResult
 import com.dpfht.thestore_koin.domain.entity.Result.Success
-import com.dpfht.thestore_koin.framework.util.net.OnlineChecker
+import com.dpfht.thestore_koin.framework.data.datasource.local.onlinechecker.OnlineChecker
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

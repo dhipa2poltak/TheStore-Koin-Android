@@ -1,4 +1,4 @@
-package com.dpfht.thestore_koin.framework.data.core.api.rest
+package com.dpfht.thestore_koin.framework.data.datasource.remote.rest
 
 import com.dpfht.thestore_koin.data.model.remote.DataResponse
 import retrofit2.http.GET

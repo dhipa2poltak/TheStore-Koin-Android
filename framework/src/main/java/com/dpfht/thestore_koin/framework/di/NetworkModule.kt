@@ -2,7 +2,7 @@ package com.dpfht.thestore_koin.framework.di
 
 import com.dpfht.thestore_koin.framework.BuildConfig
 import com.dpfht.thestore_koin.framework.Config
-import com.dpfht.thestore_koin.framework.data.core.api.rest.RestService
+import com.dpfht.thestore_koin.framework.data.datasource.remote.rest.RestService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module

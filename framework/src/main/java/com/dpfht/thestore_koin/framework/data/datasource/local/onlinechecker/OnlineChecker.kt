@@ -1,4 +1,4 @@
-package com.dpfht.thestore_koin.framework.util.net
+package com.dpfht.thestore_koin.framework.data.datasource.local.onlinechecker
 
 interface OnlineChecker {
 
