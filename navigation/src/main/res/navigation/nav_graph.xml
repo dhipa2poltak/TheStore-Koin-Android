@@ -11,7 +11,7 @@
 
     <action
         android:id="@+id/navigateSplashToList"
-        app:destination="@+id/listFragment" />
+        app:destination="@id/listFragment" />
   </fragment>
 
   <fragment
