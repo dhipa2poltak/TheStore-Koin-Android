@@ -1,7 +1,5 @@
 <resources>
   <string name="msg_loading_file">loading…</string>
-  <string name="ok">OK</string>
-  <string name="title_message">Message</string>
   <string name="banner">banner</string>
   <string name="product_image">product image</string>
   <string name="stok">Stok</string>
