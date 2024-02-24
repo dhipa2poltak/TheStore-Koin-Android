@@ -50,14 +50,20 @@ android {
     staging {
       applicationId "com.dpfht.thestore_koin.staging"
       manifestPlaceholders.appName = "TheStore-Koin-Staging"
+
+      buildConfigField 'String', 'BASE_URL', STAGING_BASE_URL
     }
     verify {
       applicationId "com.dpfht.thestore_koin.verify"
       manifestPlaceholders.appName = "TheStore-Koin-Verify"
+
+      buildConfigField 'String', 'BASE_URL', VERIFY_BASE_URL
     }
     prod {
       applicationId "com.dpfht.thestore_koin"
       manifestPlaceholders.appName = "TheStore-Koin"
+
+      buildConfigField 'String', 'BASE_URL', PROD_BASE_URL
     }
   }
 }

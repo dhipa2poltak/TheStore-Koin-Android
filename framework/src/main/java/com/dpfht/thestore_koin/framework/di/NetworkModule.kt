@@ -1,6 +1,7 @@
 package com.dpfht.thestore_koin.framework.di
 
 import com.dpfht.thestore_koin.framework.BuildConfig
+import com.dpfht.thestore_koin.framework.Config
 import com.dpfht.thestore_koin.framework.data.core.api.rest.RestService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -28,7 +29,7 @@ fun provideClient(): OkHttpClient {
 
 fun provideRetrofit(client: OkHttpClient): Retrofit {
   return Retrofit.Builder()
-    .baseUrl(BuildConfig.BASE_URL)
+    .baseUrl(Config.BASE_URL)
     .addConverterFactory(GsonConverterFactory.create())
     .client(client)
     .build()
