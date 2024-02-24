@@ -71,10 +71,7 @@ android {
 dependencies {
 
   implementation project(":framework")
-  implementation project(":features:feature_splash")
-  implementation project(":features:feature_error_message")
-  implementation project(":features:feature_list")
-  implementation project(":features:feature_details")
+  implementation project(":navigation")
 
   implementation Deps.coreKtx
   implementation Deps.appCompat
