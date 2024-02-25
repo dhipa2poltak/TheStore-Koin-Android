@@ -14,13 +14,12 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.dpfht.thestore_koin.framework.ext.toRupiahString
 import com.dpfht.thestore_koin.feature_list.R
 import com.dpfht.thestore_koin.feature_list.adapter.ProductListAdapter
 import com.dpfht.thestore_koin.feature_list.databinding.FragmentProductListBinding
 import com.dpfht.thestore_koin.feature_list.databinding.FragmentProductListLandBinding
 import com.dpfht.thestore_koin.feature_list.di.ListModule
-import com.dpfht.thestore_koin.framework.navigation.NavigationService
+import com.dpfht.thestore_koin.framework.ext.toRupiahString
 import com.squareup.picasso.Picasso
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -30,10 +29,8 @@ import org.koin.core.parameter.parametersOf
 
 class ProductListFragment : Fragment(), KoinComponent {
 
-  private val navigationService: NavigationService by inject()
   private val prgDialog: AlertDialog by inject { parametersOf(this.context) }
   private val viewModel: ProductListViewModel by viewModel()
-  private val adapter: ProductListAdapter by inject()
 
   private lateinit var ivBanner: ImageView
   private lateinit var swRefresh: SwipeRefreshLayout
@@ -89,15 +86,13 @@ class ProductListFragment : Fragment(), KoinComponent {
 
     setToolbar()
 
-    adapter.products = viewModel.products
-
     val layoutManager = LinearLayoutManager(requireContext())
     layoutManager.orientation = LinearLayoutManager.VERTICAL
 
     rvProduct.layoutManager = layoutManager
-    rvProduct.adapter = adapter
+    rvProduct.adapter = viewModel.adapter
 
-    adapter.onClickProductListener = object : ProductListAdapter.OnClickProductListener {
+    viewModel.adapter.onClickProductListener = object : ProductListAdapter.OnClickProductListener {
       override fun onClickProduct(position: Int) {
         val product = viewModel.getProduct(position)
 
@@ -105,7 +100,7 @@ class ProductListFragment : Fragment(), KoinComponent {
           val navHostFragment =
             childFragmentManager.findFragmentById(R.id.details_nav_container) as NavHostFragment
 
-          navigationService.navigateFromListToDetails(
+          viewModel.navigateFromListToDetails(
             product.productName,
             "${product.price.toRupiahString()} / pcs",
             product.description,
@@ -113,7 +108,7 @@ class ProductListFragment : Fragment(), KoinComponent {
             navHostFragment.navController
           )
         } else {
-          navigationService.navigateFromListToDetails(
+          viewModel.navigateFromListToDetails(
             product.productName,
             "${product.price.toRupiahString()} / pcs",
             product.description,
@@ -125,8 +120,6 @@ class ProductListFragment : Fragment(), KoinComponent {
     }
 
     swRefresh.setOnRefreshListener {
-      adapter.products.clear()
-      adapter.notifyDataSetChanged()
       viewModel.refresh()
     }
 
@@ -154,21 +147,9 @@ class ProductListFragment : Fragment(), KoinComponent {
       }
     }
 
-    viewModel.notifyItemInserted.observe(viewLifecycleOwner) { position ->
-      if (position > 0) {
-        adapter.notifyItemInserted(position)
-      }
-    }
-
     viewModel.toastMessage.observe(viewLifecycleOwner) { msg ->
       if (msg.isNotEmpty()) {
         Toast.makeText(requireContext(), msg, Toast.LENGTH_SHORT).show()
-      }
-    }
-
-    viewModel.errorMessage.observe(viewLifecycleOwner) { msg ->
-      if (msg.isNotEmpty()) {
-        showErrorMessage(msg)
       }
     }
   }
@@ -176,9 +157,5 @@ class ProductListFragment : Fragment(), KoinComponent {
   private fun setToolbar() {
     (requireActivity() as AppCompatActivity).supportActionBar?.title = resources.getString(R.string.text_order_barang)
     (requireActivity() as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
-  }
-
-  private fun showErrorMessage(message: String) {
-    navigationService.navigateFromListToError(message)
   }
 }

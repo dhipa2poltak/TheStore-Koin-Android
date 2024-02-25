@@ -4,34 +4,36 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.navigation.NavController
 import com.dpfht.thestore_koin.domain.entity.ProductEntity
-import com.dpfht.thestore_koin.domain.usecase.GetProductsUseCase
 import com.dpfht.thestore_koin.domain.entity.Result.Error
 import com.dpfht.thestore_koin.domain.entity.Result.Success
+import com.dpfht.thestore_koin.domain.usecase.GetProductsUseCase
+import com.dpfht.thestore_koin.feature_list.adapter.ProductListAdapter
 import com.dpfht.thestore_koin.framework.data.datasource.local.onlinechecker.OnlineChecker
-import kotlinx.coroutines.Dispatchers
+import com.dpfht.thestore_koin.framework.navigation.NavigationService
 import kotlinx.coroutines.launch
 
 class ProductListViewModel constructor(
   private val getProdutsUseCase: GetProductsUseCase,
-  val products: ArrayList<ProductEntity>,
-  private val onlineChecker: OnlineChecker
+  private val products: ArrayList<ProductEntity>,
+  val adapter: ProductListAdapter,
+  private val onlineChecker: OnlineChecker,
+  private val navigationService: NavigationService
 ): ViewModel() {
 
   private val mIsShowDialogLoading = MutableLiveData<Boolean>()
   val isShowDialogLoading: LiveData<Boolean> = mIsShowDialogLoading
 
-  private val mErrorMessage = MutableLiveData<String>()
-  val errorMessage: LiveData<String> = mErrorMessage
-
   private val mToastMessage = MutableLiveData<String>()
   val toastMessage: LiveData<String> = mToastMessage
 
-  private val _notifyItemInserted = MutableLiveData<Int>()
-  val notifyItemInserted: LiveData<Int> = _notifyItemInserted
-
   private val _banner = MutableLiveData<String>()
   val banner: LiveData<String> = _banner
+
+  init {
+    adapter.products = products
+  }
 
   fun start() {
     if (products.isEmpty()) {
@@ -63,25 +65,21 @@ class ProductListViewModel constructor(
   }
 
   private fun onSuccess(banner: String, products: List<ProductEntity>) {
-    viewModelScope.launch(Dispatchers.Main) {
-      if (banner.isNotEmpty()) {
-        _banner.value = banner
-      }
-
-      for (product in products) {
-        this@ProductListViewModel.products.add(product)
-        _notifyItemInserted.value = this@ProductListViewModel.products.size - 1
-      }
-
-      mIsShowDialogLoading.value = false
+    if (banner.isNotEmpty()) {
+      _banner.postValue(banner)
     }
+
+    for (product in products) {
+      this@ProductListViewModel.products.add(product)
+      adapter.notifyItemInserted(this@ProductListViewModel.products.size - 1)
+    }
+
+    mIsShowDialogLoading.postValue(false)
   }
 
   private fun onError(message: String) {
-    viewModelScope.launch(Dispatchers.Main) {
-      mErrorMessage.value = message
-      mIsShowDialogLoading.value = false
-    }
+    mIsShowDialogLoading.postValue(false)
+    navigationService.navigateFromListToError(message)
   }
 
   fun getProduct(position: Int): ProductEntity {
@@ -90,6 +88,17 @@ class ProductListViewModel constructor(
 
   fun refresh() {
     products.clear()
+    adapter.notifyDataSetChanged()
     start()
+  }
+
+  fun navigateFromListToDetails(title: String, price: String, description: String, image: String, navController: NavController?) {
+    navigationService.navigateFromListToDetails(
+      title,
+      price,
+      description,
+      image,
+      navController
+    )
   }
 }
