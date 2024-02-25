@@ -40,6 +40,12 @@ dependencies {
   implementation project(":data")
 
   testImplementation Deps.jUnit
+  testImplementation Deps.mockitoKotlin
+  testImplementation Deps.mockitoInline
+  testImplementation Deps.robolectric
+  testImplementation Deps.coreKtxTesting
+  testImplementation Deps.mockWebServer
+  testImplementation Deps.coroutinesTest
   androidTestImplementation Deps.jUnitExt
   androidTestImplementation Deps.espresso
 
