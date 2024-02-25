@@ -5,13 +5,22 @@
     android:layout_marginTop="?attr/actionBarSize"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+  <View
+      android:id="@+id/vw_horizontal_line"
+      android:layout_width="0dp"
+      android:layout_height="1dp"
+      android:background="#FFCCCCCC"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintEnd_toEndOf="parent" />
+
   <ImageView
       android:id="@+id/iv_banner"
       android:layout_width="0dp"
       android:layout_height="200dp"
       android:scaleType="fitXY"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/vw_horizontal_line"
       app:layout_constraintEnd_toStartOf="@+id/guideline"
       android:contentDescription="@string/banner" />
 
@@ -22,14 +31,13 @@
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/iv_banner"
       app:layout_constraintEnd_toStartOf="@+id/guideline"
-      app:layout_constraintBottom_toBottomOf="parent">
+      app:layout_constraintBottom_toBottomOf="parent"
+      android:layout_marginBottom="10dp">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_product"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp" />
+        android:layout_height="match_parent" />
   </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
   <androidx.constraintlayout.widget.Guideline
@@ -38,6 +46,16 @@
       android:layout_height="match_parent"
       android:orientation="vertical"
       app:layout_constraintGuide_percent="0.5"/>
+
+  <View
+      android:id="@+id/vw_vertical_line"
+      android:layout_width="1dp"
+      android:layout_height="0dp"
+      android:background="#FFCCCCCC"
+      app:layout_constraintStart_toStartOf="@+id/guideline"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintEnd_toEndOf="@+id/guideline"
+      app:layout_constraintBottom_toBottomOf="parent"/>
 
   <androidx.fragment.app.FragmentContainerView
       android:id="@+id/details_nav_container"
@@ -48,6 +66,7 @@
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toEndOf="@id/guideline"
-      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/vw_horizontal_line"
       app:navGraph="@navigation/details_navigation"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

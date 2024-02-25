@@ -1,56 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="10dp">
+    app:cardCornerRadius="8dp"
+    app:cardElevation="2dp"
+    app:strokeWidth="1dp"
+    app:strokeColor="#FFCCCCCC"
+    android:layout_marginTop="10dp"
+    android:layout_marginHorizontal="10dp">
 
-  <ImageView
-      android:id="@+id/iv_product"
-      android:layout_width="80dp"
-      android:layout_height="80dp"
-      android:scaleType="fitXY"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      android:contentDescription="@string/product_image"/>
-  
-  <TextView
-      android:id="@+id/tv_title"
-      android:layout_width="0dp"
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      app:layout_constraintStart_toEndOf="@+id/iv_product"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintEnd_toStartOf="@+id/tv_stock"
-      android:layout_marginStart="10dp"
-      android:layout_marginLeft="10dp"
-      android:textColor="#FF0000"
-      android:textStyle="bold"/>
+      android:layout_margin="10dp">
 
-  <TextView
-      android:id="@+id/tv_price"
-      android:layout_width="0dp"
-      android:layout_height="wrap_content"
-      app:layout_constraintStart_toEndOf="@+id/iv_product"
-      app:layout_constraintTop_toBottomOf="@+id/tv_title"
-      app:layout_constraintEnd_toStartOf="@+id/tv_stock_value"
-      android:layout_marginStart="10dp"
-      android:layout_marginLeft="10dp"/>
+    <ImageView
+        android:id="@+id/iv_product"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/product_image"/>
 
-  <TextView
-      android:id="@+id/tv_stock"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="@string/stok"
-      app:layout_constraintStart_toEndOf="@+id/tv_title"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"/>
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/iv_product"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tv_stock"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:textColor="#FF0000"
+        android:textStyle="bold"/>
 
-  <TextView
-      android:id="@+id/tv_stock_value"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="@string/text_0"
-      app:layout_constraintStart_toEndOf="@+id/tv_price"
-      app:layout_constraintTop_toBottomOf="@+id/tv_stock"
-      app:layout_constraintEnd_toEndOf="parent"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/tv_price"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/iv_product"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title"
+        app:layout_constraintEnd_toStartOf="@+id/tv_stock_value"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"/>
+
+    <TextView
+        android:id="@+id/tv_stock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/stok"
+        app:layout_constraintStart_toEndOf="@+id/tv_title"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_stock_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/text_0"
+        app:layout_constraintStart_toEndOf="@+id/tv_price"
+        app:layout_constraintTop_toBottomOf="@+id/tv_stock"
+        app:layout_constraintEnd_toEndOf="parent"/>
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
