@@ -11,6 +11,7 @@ import com.dpfht.thestore_koin.domain.entity.Result.Success
 import com.dpfht.thestore_koin.domain.usecase.GetProductsUseCase
 import com.dpfht.thestore_koin.feature_list.adapter.ProductListAdapter
 import com.dpfht.thestore_koin.framework.data.datasource.local.onlinechecker.OnlineChecker
+import com.dpfht.thestore_koin.framework.ext.toRupiahString
 import com.dpfht.thestore_koin.framework.navigation.NavigationService
 import kotlinx.coroutines.launch
 
@@ -82,22 +83,20 @@ class ProductListViewModel constructor(
     navigationService.navigateFromListToError(message)
   }
 
-  fun getProduct(position: Int): ProductEntity {
-    return products[position]
-  }
-
   fun refresh() {
     products.clear()
     adapter.notifyDataSetChanged()
     start()
   }
 
-  fun navigateFromListToDetails(title: String, price: String, description: String, image: String, navController: NavController?) {
+  fun navigateFromListToDetails(position: Int, navController: NavController?) {
+    val product = products[position]
+
     navigationService.navigateFromListToDetails(
-      title,
-      price,
-      description,
-      image,
+      product.productName,
+      "${product.price.toRupiahString()} / pcs",
+      product.description,
+      product.images?.large ?: "",
       navController
     )
   }

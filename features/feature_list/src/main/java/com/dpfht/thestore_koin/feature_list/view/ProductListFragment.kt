@@ -19,7 +19,6 @@ import com.dpfht.thestore_koin.feature_list.adapter.ProductListAdapter
 import com.dpfht.thestore_koin.feature_list.databinding.FragmentProductListBinding
 import com.dpfht.thestore_koin.feature_list.databinding.FragmentProductListLandBinding
 import com.dpfht.thestore_koin.feature_list.di.ListModule
-import com.dpfht.thestore_koin.framework.ext.toRupiahString
 import com.squareup.picasso.Picasso
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -94,27 +93,13 @@ class ProductListFragment : Fragment(), KoinComponent {
 
     viewModel.adapter.onClickProductListener = object : ProductListAdapter.OnClickProductListener {
       override fun onClickProduct(position: Int) {
-        val product = viewModel.getProduct(position)
 
         if (isTablet) {
           val navHostFragment =
             childFragmentManager.findFragmentById(R.id.details_nav_container) as NavHostFragment
-
-          viewModel.navigateFromListToDetails(
-            product.productName,
-            "${product.price.toRupiahString()} / pcs",
-            product.description,
-            product.images?.large ?: "",
-            navHostFragment.navController
-          )
+          viewModel.navigateFromListToDetails(position, navHostFragment.navController)
         } else {
-          viewModel.navigateFromListToDetails(
-            product.productName,
-            "${product.price.toRupiahString()} / pcs",
-            product.description,
-            product.images?.large ?: "",
-            null
-          )
+          viewModel.navigateFromListToDetails(position, null)
         }
       }
     }

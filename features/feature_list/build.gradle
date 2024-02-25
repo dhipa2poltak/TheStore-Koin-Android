@@ -44,6 +44,10 @@ dependencies {
   implementation Deps.material
   implementation Deps.swipeRefreshLayout
   testImplementation Deps.jUnit
+  testImplementation Deps.mockitoKotlin
+  testImplementation Deps.mockitoInline
+  testImplementation Deps.coreTesting
+  testImplementation Deps.coroutinesTest
   androidTestImplementation Deps.jUnitExt
   androidTestImplementation Deps.espresso
 
