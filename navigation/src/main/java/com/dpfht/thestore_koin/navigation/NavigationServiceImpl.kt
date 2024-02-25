@@ -3,6 +3,7 @@ package com.dpfht.thestore_koin.navigation
 import android.os.Bundle
 import androidx.navigation.NavController
 import com.dpfht.thestore_koin.framework.navigation.NavigationService
+import com.dpfht.thestore_koin.feature_details.R as featureDetailsR
 
 class NavigationServiceImpl(private val navController: NavController): NavigationService {
 
@@ -21,7 +22,7 @@ class NavigationServiceImpl(private val navController: NavController): Navigatio
     bundle.putString("image", image)
 
     if (navController != null) {
-      navController.navigate(com.dpfht.thestore_koin.feature_details.R.id.productDetailsFragment, bundle)
+      navController.navigate(featureDetailsR.id.productDetailsFragment, bundle)
     } else {
       this.navController.navigate(R.id.navigateListToDetails, bundle)
     }
