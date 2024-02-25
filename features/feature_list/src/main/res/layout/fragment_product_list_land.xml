@@ -49,5 +49,5 @@
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toEndOf="@id/guideline"
       app:layout_constraintTop_toTopOf="parent"
-      app:navGraph="@navigation/details_sub_navigation"/>
+      app:navGraph="@navigation/details_navigation"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
