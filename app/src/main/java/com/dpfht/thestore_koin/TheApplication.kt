@@ -8,14 +8,14 @@ import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
 
-class App: Application() {
+class TheApplication: Application() {
 
   override fun onCreate() {
     Config.BASE_URL = BuildConfig.BASE_URL
     super.onCreate()
 
     startKoin {
-      androidContext(this@App)
+      androidContext(this@TheApplication)
       androidLogger()
       modules(appModule, networkModule)
     }

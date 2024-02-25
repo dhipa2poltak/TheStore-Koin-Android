@@ -7,7 +7,44 @@ plugins {
 }
 
 apply from: 'dependencies.gradle'
+apply from: 'jacoco/project.gradle'
+
+subprojects {
+  afterEvaluate { subproject ->
+    def projectName = subproject.name
+
+    if (projectName != "features") {
+      println "Applying JaCoCo for module-> ${projectName}"
+      subproject.apply from: "$project.rootDir/jacoco/module.gradle"
+    }
+  }
+}
 
 tasks.register('clean', Delete) {
   delete rootProject.buildDir
+}
+
+tasks.register('codeCoverModules') {
+  dependsOn ':domain:jacocoTestReport'
+  dependsOn ':data:jacocoTestReport'
+  dependsOn ':app:testProdDebugUnitTestCoverage'
+
+  subprojects.collect { proj ->
+    def projectName = proj.name
+
+    if (projectName != "domain" && projectName != "data" && projectName != "app") {
+      if (projectName != "features") {
+        if (projectName == "framework" || projectName == "navigation") {
+          dependsOn(":${projectName}:testDebugUnitTestCoverage")
+        } else {
+          dependsOn(":features:${projectName}:testDebugUnitTestCoverage")
+        }
+      }
+    }
+  }
+}
+
+tasks.register('allDebugCodeCoverage', GradleBuild) {
+  tasks = ['allDebugCoverage']
+  mustRunAfter codeCoverModules
 }
