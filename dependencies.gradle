@@ -4,7 +4,10 @@ ext {
   ConfigData = [
       compileSdkVersion: 34,
       minSdkVersion: 21,
-      targetSdkVersion: 34
+      targetSdkVersion: 34,
+      sourceCompatibilityVersion: JavaVersion.VERSION_17,
+      targetCompatibilityVersion: JavaVersion.VERSION_17,
+      jvmTargetVersion: '17'
   ]
 
   Versions = [
